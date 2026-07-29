@@ -324,7 +324,9 @@ export default function Home() {
           <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-500">
             * RDA (Recommended Dietary Allowance): The average daily intake
             level sufficient to meet the nutrient needs of most healthy
-            people.
+            people. Values shown are general adult figures (commonly the
+            19-50 age range) and can differ for other ages, pregnancy or
+            lactation, or specific health conditions.
           </p>
         </section>
 
