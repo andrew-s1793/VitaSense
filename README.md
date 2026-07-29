@@ -56,8 +56,11 @@ ever proposes changing a numeric value in `supplements.json` or
 `interactions.json`, treat that as a flag to verify manually, not to accept
 on trust.
 
-## Legal groundwork (do this before real users touch it)
+## Legal groundwork
 
-- Add a clear disclaimer: informational only, not medical advice.
-- A cheap one-off consult with a lawyer on ToS/liability framing is worth it
-  before sharing beyond yourself.
+- Disclaimer added: informational only, not medical advice, plus a privacy
+  note (nothing entered is collected or stored) and a data-sourcing caveat,
+  shown in the page header, Flags panel, and footer.
+- No lawyer consult planned — this is a non-commercial, stateless portfolio
+  project (no accounts, no data collection, no monetization), so a plain
+  on-page disclaimer covers it.

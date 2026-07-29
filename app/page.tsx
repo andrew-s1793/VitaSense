@@ -328,13 +328,38 @@ export default function Home() {
           </p>
         </section>
 
-        <footer className="border-t border-paper-border pt-6 text-xs text-zinc-500 dark:text-zinc-500">
+        <footer className="border-t border-paper-border pt-6 text-xs text-zinc-500 dark:text-zinc-500 space-y-3">
           <p>
-            Informational only — not medical advice. Reference data sourced
-            from general published sources (e.g. NIH Office of Dietary
-            Supplements fact sheets). Individual needs vary — consult a
-            doctor or pharmacist before starting or altering your supplement
+            <strong className="font-medium text-zinc-700 dark:text-zinc-300">
+              Informational only — not medical advice.
+            </strong>{" "}
+            VitaSense is a personal portfolio project: no accounts, no
+            tracking, no analytics. Nothing you enter is collected, stored,
+            or sent anywhere — your stack lives only in this browser tab and
+            disappears on reload or close.
+          </p>
+          <p>
+            Reference values (upper limits, RDAs, interaction and timing
+            notes) are drawn from general published sources, primarily NIH
+            Office of Dietary Supplements fact sheets, and have not been
+            independently verified for accuracy or completeness. This tool
+            does not account for your individual health history,
+            medications, allergies, or circumstances, and is not a
+            substitute for professional medical advice — consult a doctor or
+            pharmacist before starting, stopping, or changing any supplement
             routine.
+          </p>
+          <p>
+            © 2026 Andrew Samarro. All rights reserved — see{" "}
+            <a
+              href="https://github.com/andrew-s1793/vitasense/blob/main/LICENSE"
+              className="underline hover:text-zinc-700 dark:hover:text-zinc-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LICENSE
+            </a>
+            .
           </p>
         </footer>
       </main>
