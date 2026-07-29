@@ -1,68 +1,66 @@
-# Supplement Stack Flagger — Starter
+# VitaSense
 
-This is the data layer + rules engine: the one part worth sourcing carefully
-before handing anything to an AI coding agent. Everything else (schema wiring,
-UI, deploy) is mechanical and safe to delegate to Claude Code.
+A supplement-stack safety checker. Add what you take to a morning/evening
+list and get dose-safety, redundancy, and interaction flags — checked
+deterministically against a sourced reference dataset. The matching logic
+is plain, explainable functions with no AI/LLM call at request time: every
+flag traces back to a specific row in the data files, not a model's guess.
 
-## What's here
+**Live:** https://vita-sense-nu.vercel.app
 
-- `data/supplements.json` — 26 common supplements with upper limits, RDAs, and
-  general timing notes, referenced against NIH Office of Dietary Supplements
-  fact sheets (see `sourceHint` field per entry — verify against the actual
-  fact sheet before treating any single value as final).
+## What it does
+
+- **Dose safety flags** — sums each supplement's AM+PM dose and flags any
+  daily total that exceeds its reference upper limit (e.g. 20mg AM + 30mg
+  PM zinc = 50mg/day, over the 40mg limit, even though neither entry looks
+  alarming alone).
+- **Redundancy flags** — catches ingredients already included in a
+  combination product also in your stack (e.g. a standalone B12 supplement
+  alongside a multivitamin that already contains it).
+- **Interaction & timing flags** — pairwise rules for known interactions
+  and absorption/timing notes (e.g. zinc and calcium competing for
+  absorption, vitamin D and K2 commonly paired).
+- **Reference limits table** — upper limit, RDA, and timing guidance for
+  everything currently in your stack.
+
+The app is intentionally stateless: visit, check your stack, close the
+tab. No accounts, no database, no saved history — nothing you enter is
+collected or stored anywhere.
+
+## Data
+
+Every value in `data/supplements.json` and `data/interactions.json` —
+upper limits, RDAs, interaction notes — was manually cross-checked against
+NIH ODS fact sheets (and NIH NCCIH for items outside ODS's scope, like
+CoQ10 and turmeric) before being trusted here. That verification was
+treated as the top priority throughout this project, ahead of the UI or
+deploy — see each entry's `sourceHint` field for what was checked.
+
+- `data/supplements.json` — 26 supplements with upper limits, RDAs, and
+  timing notes.
 - `data/interactions.json` — 15 pairwise interaction/timing rules.
-- `lib/flagger.js` — pure functions (`getFlags`, `getReferenceLimits`) that
-  match a user's stack against the data files. No AI, no guessing — fully
-  deterministic and testable.
+- `lib/flagger.js` — pure, deterministic functions matching a stack
+  against both files.
 
-## Before you touch Claude Code: expand and verify the data
+## How it was built
 
-You already have 26 supplements and 15 rules — enough to build against, but
-thin for a real product. Before wiring up the app:
+Built with Claude Code, working data-first: the two JSON files and
+`lib/flagger.js` were treated as the part worth getting right before
+anything else, with the app itself (Next.js scaffold, UI, deploy) built
+around them once the data held up. See `CLAUDE.md` for the working
+conventions this repo follows — including a hard rule that a numeric
+value or health claim can never be silently invented or adjusted without
+being flagged for manual verification.
 
-1. Add your own full stack (all 11 items) into `supplements.json` if any are
-   missing.
-2. Spend 1-2 hours cross-checking each `upperLimit` and `note` field against
-   the actual NIH ODS fact sheet for that nutrient (search "[nutrient] NIH
-   ODS fact sheet"). This is the one step I'd genuinely resist automating —
-   it's the credibility of the whole product.
-3. Add a few more interaction rules relevant to your own stack as you go.
+## Stack
 
-## Next steps with Claude Code
+Next.js 16 (App Router, Turbopack), TypeScript, Tailwind v4. Deployed on
+Vercel via GitHub import.
 
-Once the data feels solid, open this folder in Claude Code and work in this
-order — one prompt per step, reviewing the output before moving to the next:
+## Legal / disclaimer
 
-**Step 1 — scaffold the app**
-> "Set up a Next.js + TypeScript project in this folder. Keep the existing
-> data/ and lib/ folders as-is. Add Tailwind for styling."
-
-**Step 2 — wire up the UI**
-> "Build a page that lets a user add supplements from data/supplements.json
-> to an AM or PM list, and displays flags from lib/flagger.js below. Use the
-> visual style from [paste description or screenshot of the prototype we
-> built earlier]."
-
-**Step 3 — deploy**
-> "Set up deployment to Vercel."
-
-Done — deployed via the Vercel dashboard (GitHub import), live in production.
-
-This app is intentionally stateless by design: visit, check your stack,
-close the tab — no accounts, no saved history, no database. That's a
-deliberate choice, not a gap to fill in later.
-
-Review each step's diff before moving to the next — especially anything that
-touches `data/` or the matching logic in `lib/flagger.js`. If Claude Code
-ever proposes changing a numeric value in `supplements.json` or
-`interactions.json`, treat that as a flag to verify manually, not to accept
-on trust.
-
-## Legal groundwork
-
-- Disclaimer added: informational only, not medical advice, plus a privacy
-  note (nothing entered is collected or stored) and a data-sourcing caveat,
-  shown in the page header, Flags panel, and footer.
-- No lawyer consult planned — this is a non-commercial, stateless portfolio
-  project (no accounts, no data collection, no monetization), so a plain
-  on-page disclaimer covers it.
+Informational only, not medical advice. No accounts, no tracking, no data
+collection. No lawyer consult was pursued — this is a non-commercial,
+stateless portfolio project, so a plain on-page disclaimer (shown in the
+app's header, Flags panel, and footer) covers it. See `LICENSE` for reuse
+terms.
