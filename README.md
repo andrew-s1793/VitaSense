@@ -6,7 +6,7 @@ UI, deploy) is mechanical and safe to delegate to Claude Code.
 
 ## What's here
 
-- `data/supplements.json` — 20 common supplements with upper limits, RDAs, and
+- `data/supplements.json` — 26 common supplements with upper limits, RDAs, and
   general timing notes, referenced against NIH Office of Dietary Supplements
   fact sheets (see `sourceHint` field per entry — verify against the actual
   fact sheet before treating any single value as final).
@@ -17,7 +17,7 @@ UI, deploy) is mechanical and safe to delegate to Claude Code.
 
 ## Before you touch Claude Code: expand and verify the data
 
-You already have 20 supplements and 15 rules — enough to build against, but
+You already have 26 supplements and 15 rules — enough to build against, but
 thin for a real product. Before wiring up the app:
 
 1. Add your own full stack (all 11 items) into `supplements.json` if any are
