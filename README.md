@@ -46,6 +46,8 @@ order — one prompt per step, reviewing the output before moving to the next:
 **Step 3 — deploy**
 > "Set up deployment to Vercel."
 
+Done — deployed via the Vercel dashboard (GitHub import), live in production.
+
 This app is intentionally stateless by design: visit, check your stack,
 close the tab — no accounts, no saved history, no database. That's a
 deliberate choice, not a gap to fill in later.

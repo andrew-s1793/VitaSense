@@ -63,6 +63,6 @@ Per README.md, the project is meant to be built out in this order (as separate, 
 
 1. ~~Scaffold a Next.js + TypeScript project in place, keeping `data/`/`lib/` as-is, with Tailwind added.~~ Done.
 2. ~~Build a UI page to add supplements to an AM/PM list and render flags from `flagger.js`.~~ Done — see `app/page.tsx` above.
-3. Deploy to Vercel. **Not started.** No auth, no database — deploying a stateless static/SSR app as-is.
+3. ~~Deploy to Vercel.~~ Done — deployed via the Vercel dashboard (GitHub import), no auth/database, stateless static/SSR app as-is.
 
-There is no disclaimer/legal copy in the repo yet; README.md notes this (informational-only disclaimer, ToS/liability review) needs to happen before real users touch the app.
+Disclaimer/legal copy has been added (informational-only disclaimer, privacy note, data-sourcing caveat) — see the header, Flags panel, and footer in `app/page.tsx`. No lawyer consult was pursued; see README.md's "Legal groundwork" section for the reasoning.
