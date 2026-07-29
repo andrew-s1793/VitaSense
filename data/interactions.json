@@ -11,5 +11,7 @@
   { "pair": ["fishoil", "vite"], "severity": "good", "text": "Both fat-soluble; commonly stacked together with a meal." },
   { "pair": ["vitc", "iron"], "severity": "good", "text": "Vitamin C can enhance non-heme iron absorption when taken together." },
   { "pair": ["vite", "fishoil"], "severity": "note", "text": "Both may have mild blood-thinning effects at high doses; relevant if also on anticoagulant medication." },
-  { "pair": ["melatonin", "ashwagandha"], "severity": "note", "text": "Both are commonly used for sleep/relaxation; combined sedative effect has limited formal study." }
+  { "pair": ["melatonin", "ashwagandha"], "severity": "note", "text": "Both are commonly used for sleep/relaxation; combined sedative effect has limited formal study." },
+  { "pair": ["turmeric", "vite"], "severity": "note", "text": "Both may have mild blood-thinning effects; relevant if also on anticoagulant medication." },
+  { "pair": ["coq10", "vite"], "severity": "note", "text": "Both may have mild blood-thinning effects; relevant if also on anticoagulant medication." }
 ]
