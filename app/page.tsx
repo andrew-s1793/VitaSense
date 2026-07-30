@@ -335,10 +335,12 @@ export default function Home() {
             <strong className="font-medium text-zinc-700 dark:text-zinc-300">
               Informational only — not medical advice.
             </strong>{" "}
-            VitaSense is a personal portfolio project: no accounts, no
-            tracking, no analytics. Nothing you enter is collected, stored,
-            or sent anywhere — your stack lives only in this browser tab and
-            disappears on reload or close.
+            VitaSense is a personal portfolio project: no accounts, and
+            nothing you enter into the app — your supplement stack — is ever
+            collected, stored, or sent anywhere; it lives only in this
+            browser tab and disappears on reload or close. Anonymous,
+            aggregate visit and performance analytics (via Vercel) may be
+            used to understand traffic; these never see your input.
           </p>
           <p>
             Reference values (upper limits, RDAs, interaction and timing

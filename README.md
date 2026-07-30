@@ -59,8 +59,10 @@ Vercel via GitHub import.
 
 ## Legal / disclaimer
 
-Informational only, not medical advice. No accounts, no tracking, no data
-collection. No lawyer consult was pursued — this is a non-commercial,
-stateless portfolio project, so a plain on-page disclaimer (shown in the
-app's header, Flags panel, and footer) covers it. See `LICENSE` for reuse
-terms.
+Informational only, not medical advice. No accounts, and nothing entered
+into the app itself is ever collected, stored, or sent anywhere. Anonymous,
+aggregate visit and performance analytics (via Vercel) may be used to
+understand traffic — these never see app input. No lawyer consult was
+pursued — this is a non-commercial, stateless portfolio project, so a
+plain on-page disclaimer (shown in the app's header, Flags panel, and
+footer) covers it. See `LICENSE` for reuse terms.
