@@ -38,6 +38,8 @@ The original AM/PM picker only tracked *presence* of a supplement, not *how much
 
 Note: Next.js writes generated route-type declarations into `.next/` and they can go stale if a route file is added then removed — if `npm run build` fails on a phantom `Cannot find module '.../route.js'` type error, `rm -rf .next` and rebuild before assuming a real regression.
 
+Note: `eslint` is intentionally pinned at `^9`, not the latest major. An attempt to bump to ESLint 10 (2026-07-29) crashed immediately — `eslint-plugin-react` (bundled inside `eslint-config-next`, not directly controlled here) calls a removed internal API (`context.getFilename()`). Not a config issue on our end; it's blocked on `eslint-config-next` shipping an ESLint-10-compatible `eslint-plugin-react`. This leaves 3 dev-only `npm audit` advisories open (never shipped to production, low urgency) — before retrying, check `npm view eslint-config-next@latest peerDependencies` and whether its bundled `eslint-plugin-react` has moved past this.
+
 ## Architecture
 
 - `getFlags(stack)` — takes a stack (`{id, period: "AM"|"PM", amount?}[]`) and returns every `interactions.json` rule where both members of `rule.pair` are present in the stack.
